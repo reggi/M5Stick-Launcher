@@ -4,7 +4,8 @@
 arduino-cli compile --verbose --fqbn m5stack:esp32:m5stack_cardputer ./Launcher/Launcher.ino --output-dir ./support_files
 arduino-cli compile --verbose --fqbn m5stack:esp32:m5stack_cardputer ./StartApp/StartApp.ino  --output-dir ./support_files
 cd ./support_files
-esptool -p COMx \
+
+esptool -p /dev/cu.usbmodem11201 \
         -b 460800 \
         --before default_reset \
         --after hard_reset \
