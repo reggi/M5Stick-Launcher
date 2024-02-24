@@ -1,6 +1,8 @@
 # brew install arduino-cli
 # brew install esptool
 
+sed -i '' 's/\/\/ #define CARDPUTER/#define CARDPUTER/' ./Launcher/Launcher.ino
+sed -i '' 's/\/\/ #define CARDPUTER/#define CARDPUTER/' ./StartApp/StartApp.ino 
 arduino-cli compile --verbose --fqbn m5stack:esp32:m5stack_cardputer ./Launcher/Launcher.ino --output-dir ./support_files
 arduino-cli compile --verbose --fqbn m5stack:esp32:m5stack_cardputer ./StartApp/StartApp.ino  --output-dir ./support_files
 cd ./support_files
